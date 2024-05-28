@@ -13,7 +13,10 @@ const StackNavigation = () => {
    screenOptions={{headerShown: false}}>
     <Stack.Screen name='LoginScreen' component={LoginScreen}/>
     <Stack.Screen name='HomeScreen' component={HomeScreen}/>
-    <Stack.Screen name='TransactionScreen' component={TransactionScreen} />
+    <Stack.Screen name='TransactionScreen' component={TransactionScreen} options={{
+      headerShown: true,
+      title: ''
+      }}/>
    </Stack.Navigator>
   )
 }

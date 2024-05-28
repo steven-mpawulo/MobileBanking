@@ -2,7 +2,8 @@ import { create } from 'zustand'
 export const useStore = create((set) => ({
     user: {
         fullName: "John Doe",
-        accountBalance: 2000
+        accountBalance: 2000,
+        accountNumber: 1
     },
     transactions: [{
         date: '04/04/2024',
@@ -22,6 +23,6 @@ export const useStore = create((set) => ({
         description: 'food'
     }
 ],
-    updateBalance: (amount) => set({ user: state.user.accountBalance - amount }),
-    updateTransactions: (transaction) => set({transactions: state.transactions.unshift(transaction)})
+    updateUser: (newUser) => set({user: newUser}),
+    updateTransactions: (newTransactions) => set({transactions: newTransactions})
   }))

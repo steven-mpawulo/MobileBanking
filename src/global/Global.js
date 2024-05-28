@@ -7,3 +7,12 @@ export const showSnackBar = (message) => {
         backgroundColor: 'red'
       });
 }
+
+export const formatDate = (unformatedDate) => {
+  let date = new Date(unformatedDate);
+  let dd = String(date.getDate()).padStart(2, '0');
+  let mm = String(date.getMonth() + 1).padStart(2, '0');
+  let yyyy = date.getFullYear();
+ return  date = mm + '/' + dd + '/' + yyyy;
+
+}
