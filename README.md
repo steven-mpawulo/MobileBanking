@@ -1,5 +1,11 @@
 This is a simple Mobile Banking Application
 It provides users with a login screen, home screen and a transfer amount screen.
+My Assumptions: 
+I only have one active user with email: johndoe@test.com and password: 123456
+This user has an account number of 1, accountBalance of 2000 and fullName of John Doe
+This user also initially has some transactions.
+This user can only make a transfer to a person with account number of 2.
+The account balance and list of transactions will be updated after successful amount transfer.
 
 
 ## Step 1: Start the Metro Server
