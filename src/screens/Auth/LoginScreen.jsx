@@ -12,22 +12,22 @@ let signInSchema = object({
     password: string().required("Password is required")
 });
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const login = (email, password, setIsLoading) => {
-        if (email === 'johndoe@test.com' && password === '123456'){
+        if (email === 'johndoe@test.com' && password === '123456') {
             setTimeout(() => {
                 setIsLoading(false)
             }, 3000)
-            
+
             navigation.navigate('HomeScreen')
-            
+
         } else {
             setIsLoading(false)
             showSnackBar("Invalid credentials")
         }
-        
+
     }
     return (
         <Pressable style={styles.loginScreen} onPress={Keyboard.dismiss}>
@@ -94,16 +94,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
-
-    image: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: '10%'
-    },
-
     firstText: {
         fontSize: 30,
         color: '#000000',
@@ -127,18 +117,6 @@ const styles = StyleSheet.create({
 
     buttonContainer: {
         marginTop: '10%'
-    },
-
-    forgotPasswordContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-end'
-    },
-
-    forgotPassword: {
-        color: '#657E98',
-        fontSize: 15,
-        fontFamily: 'Poppins-Regular'
     },
 
     error: {
