@@ -14,14 +14,20 @@ let signInSchema = object({
 
 const LoginScreen = ({navigation}) => {
     const [isLoading, setIsLoading] = useState(false)
+
     const login = (email, password, setIsLoading) => {
-        if (email !== 'johndoe@test.com' && password !== '123456'){
+        if (email === 'johndoe@test.com' && password === '123456'){
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 3000)
+            
+            navigation.navigate('HomeScreen')
+            
+        } else {
             setIsLoading(false)
             showSnackBar("Invalid credentials")
-            return
         }
-        setIsLoading(false)
-        navigation.navigate('HomeScreen')
+        
     }
     return (
         <Pressable style={styles.loginScreen} onPress={Keyboard.dismiss}>
@@ -40,7 +46,7 @@ const LoginScreen = ({navigation}) => {
                                 let email = values.email
                                 let password = values.password
                                 setIsLoading(true)
-                                login(email, password)
+                                login(email, password, setIsLoading)
                                 resetForm()
                                 setFieldError("email", false)
                                 setFieldError("password", false)
