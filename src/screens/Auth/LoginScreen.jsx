@@ -16,13 +16,11 @@ const LoginScreen = ({navigation}) => {
     const [isLoading, setIsLoading] = useState(false)
     const login = (email, password, setIsLoading) => {
         if (email !== 'johndoe@test.com' && password !== '123456'){
+            setIsLoading(false)
             showSnackBar("Invalid credentials")
             return
         }
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 3000)
-
+        setIsLoading(false)
         navigation.navigate('HomeScreen')
     }
     return (
