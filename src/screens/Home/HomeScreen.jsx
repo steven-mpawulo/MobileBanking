@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, BackHandler, StatusBar, FlatList} from 'react-native'
+import { StyleSheet, Text, View, BackHandler, StatusBar, FlatList, Pressable} from 'react-native'
 import React from 'react'
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {useStore} from '../../store/store'
 import MyTransaction from '../../components/MyTransaction/MyTransaction';
+import TransferIcon from 'react-native-vector-icons/FontAwesome6'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const user = useStore((state) => state.user)
   const transactions = useStore((state) => state.transactions)
   useFocusEffect(
@@ -56,6 +57,29 @@ const HomeScreen = () => {
         </View>
       </View>
       <View style={styles.moreContent}>
+      <View style={{
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '5%'
+      }}>
+        <Pressable style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }} onPress={() => {
+          navigation.navigate('TransactionScreen')
+        }}>
+        <View style={styles.iconContainer}>
+        <TransferIcon name={'money-bill-transfer'} size={20} color={'black'}/>
+        </View>
+        <Text style={{
+          color: 'black'
+        }}>Make a transaction</Text>
+        </Pressable>
+      </View>
       <Text style={{color: 'black'}}>Your Transactions</Text>
       <FlatList
         data={transactions}
@@ -160,5 +184,20 @@ const styles = StyleSheet.create({
   moreContent: {
     marginTop: '8%',
     padding: 16
-  }
+  },
+
+    iconContainer: {
+      width: 50,
+      height: 50,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderRadius: 10,
+      backgroundColor: '#EAEAEA',
+      borderColor: '#EAEAEA',
+      marginRight: 10
+
+  },
 })
