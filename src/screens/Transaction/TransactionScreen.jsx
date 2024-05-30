@@ -83,7 +83,7 @@ const TransactionScreen = ({ navigation }) => {
                                     touched={touched.accountNumber}
                                     isForNumber={true}
                                 />
-                                {<touched className="accountNumber"></touched> && <Text style={styles.error}>{errors.accountNumber}</Text>}
+                                {touched.accountNumber && <Text style={styles.error}>{errors.accountNumber}</Text>}
                                 <MyTextInput label={"Amount"}
                                     placeholder={"100"}
                                     onChangeText={handleChange('amount')}
