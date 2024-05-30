@@ -7,6 +7,16 @@ This user also initially has some transactions.
 This user can only make a transfer to a person with account number of 2.
 The account balance and list of transactions will be updated after successful amount transfer.
 
+## Clone and install dependencies
+You will have to first clone this repository
+Use git clone with the repo url
+
+Change directory into this cloned repository
+cd then the name of the clone repository
+
+Then run npm install to get all the dependencies
+
+Finally follow the following steps
 
 ## Step 1: Start the Metro Server
 
